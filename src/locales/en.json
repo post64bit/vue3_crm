@@ -1,0 +1,97 @@
+{
+  "profileTitle": "Profile",
+  "profileName": "Name",
+  "profileMinNameLength": "The minimal length of name",
+  "profileSubmitButton": "Send",
+  "profileToastWarning": "Enter name first",
+  "profileToastNameWasChanged": "Name was changed",
+  "profileToastLanguageWasChanged": "Language was changed",
+
+  "sidebarBill": "Bill",
+  "sidebarHistory": "History",
+  "sidebarPlanning": "Planing",
+  "sidebarRecord": "Record",
+  "sidebarCategories": "Categories",
+
+  "categoriesTitle": "Categories",
+  "categoriesNote": "There are no categories yet",
+
+  "registerHomeBookkeeping": "Home Bookkeeping",
+  "registerEmail": "Email",
+  "registerWrongEmail": "Wrong Email",
+  "registerWriteEmail": "Write Email",
+  "registerWritePassword": "Write password.",
+  "registerMinimumPassLeng": "Write password.",
+  "registerNowIsOnly": "symbols required, now is only",
+  "registerWriteName": "Write name",
+  "registerAgree": "Are you agree with the rules (there is no rules)",
+  "registerRegButton": "Sing Up",
+  "registerHaveHadAcc": "Do you have an account?",
+  "registerLogIn": "Log in",
+
+  "recordNewRecord": "New record",
+  "recordNoYet": "There is no categories yet",
+  "recordAdd": "Add category",
+  "recordChooseCat": "Choose category",
+  "recordIncome": "Income",
+  "recordOutcome": "Outcome",
+  "recordSum": "Sum",
+  "recordEnterSum": "Enter sum",
+  "recordDescription": "Description",
+  "recordEnterDescription": "Enter description",
+  "recordCreate": "Create",
+
+  "planningTitle": "Planing",
+  "planningAddCat": "Add category",
+  "planningFrom": "of",
+  "planningExcessOn": "excess on",
+  "planningLeft": "Left",
+
+  "historyOfRecords": "Records history",
+  "historyRecordsNotYet": "There is no records",
+  "historyAddFirst": "Add a record",
+
+  "detailCategory": "Category",
+  "detailNoSuchRecord": "There is no such record",
+
+  "mainLayoutCreateReс": "Create record",
+  "mainLayoutWentWrong": "Something went wrong",
+
+  "homeCurrency": "Exchange Rates",
+  "homeCurrencyVal": "Currency",
+  "homeCurrencyCur": "Exchange",
+  "homeCurrencyDate": "date",
+
+  "homeBillBillInVal": "Bill in exchange",
+
+  "historyTableType": "Type",
+  "historyTableOpen": "Open",
+  "historyTableLookUp": "Look record",
+
+  "categoryEditEdit": "Edit",
+
+  "recordChooseName": "Name",
+  "recordChooseEnterName": "Enter name",
+  "recordChooseMinVal": "Minimum amount",
+  "recordChooseUpdate": "Update",
+  "recordChooseUpdatedSuccess": "The category was successfully updated",
+  "categoryCreateEnterName": "Enter name",
+  "categoryCreateLimit": "Limit",
+  "categoryCreateWasCreated": "The category was created",
+  "navbarProfile": "Profile",
+  "navbarExit": "Exit",
+  "registerHaveAcc": "Don't have an account?",
+
+  "routerHome": "Home",
+  "routerRegister": "Register",
+  "routerProfile": "Profile",
+  "routerCategories": "Categories",
+  "routerDetail-record": "Detail-record",
+  "routerHistory": "History",
+  "routerLogin": "Login",
+  "routerPlanning": "Planning",
+  "routerRecord": "Record"
+
+
+
+}

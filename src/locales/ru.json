@@ -1,0 +1,96 @@
+{
+  "profileTitle": "Профиль",
+  "profileName": "Имя",
+  "profileMinNameLength": "Минимальная длина имени",
+  "profileSubmitButton": "Отправить",
+  "profileToastWarning": "Сперва введите данные",
+  "profileToastNameWasChanged": "Имя было изменено",
+  "profileToastLanguageWasChanged": "Язык был изменен",
+
+  "sidebarBill": "Счет",
+  "sidebarHistory": "История",
+  "sidebarPlanning": "Планирование",
+  "sidebarRecord": "Запись",
+  "sidebarCategories": "Категории",
+
+  "categoriesTitle": "Категории",
+  "categoriesNote": "Категорий пока нет",
+
+  "registerHomeBookkeeping": "Домашняя бухгалтерия",
+  "registerEmail": "Ел. Почта",
+  "registerWrongEmail": "Неверная почта",
+  "registerWriteEmail": "Напишите Ел. Почту",
+  "registerWritePassword": "Напишите пароль",
+  "registerMinimumPassLeng": "Минимальная длина пароля",
+  "registerNowIsOnly": "сейчас только",
+  "registerWriteName": "Напишите имя",
+  "registerAgree": "Вы согласны с правилами? (правил нет)",
+  "registerRegButton": "Зарегистрироваться",
+  "registerHaveHadAcc": "Уже есть аккаунт?",
+  "registerLogIn": "Войти",
+
+  "recordNewRecord": "Новая запись",
+  "recordNoYet": "Категорий пока нет",
+  "recordAdd": "Добавить категорию",
+  "recordChooseCat": "Выберите категорию",
+  "recordIncome": "Доход",
+  "recordOutcome": "Расход",
+  "recordSum": "Сумма",
+  "recordEnterSum": "Введите сумму",
+  "recordDescription": "Описание",
+  "recordEnterDescription": "Введите описание",
+  "recordCreate": "Создать",
+
+  "planningTitle": "Планирование",
+  "planningAddCat": "Добавить категорию",
+  "planningFrom": "из",
+  "planningExcessOn": "Превышение на",
+  "planningLeft": "Осалось",
+
+  "historyOfRecords": "История записей",
+  "historyRecordsNotYet": "Записей нет",
+  "historyAddFirst": "Добавить запись",
+
+  "detailCategory": "Категория",
+  "detailNoSuchRecord": "Такой записи нет",
+
+  "mainLayoutCreateReс": "Создать запись",
+  "mainLayoutWentWrong": "Что то пошло не так",
+
+  "homeCurrency": "Курс валют",
+  "homeCurrencyVal": "Валюта",
+  "homeCurrencyCur": "Курс",
+  "homeCurrencyDate": "Дата",
+
+  "homeBillBillInVal": "Счет в валюте",
+
+  "historyTableType": "Тип",
+  "historyTableOpen": "Открыть",
+  "historyTableLookUp": "Посмтотреть запись",
+
+  "categoryEditEdit": "Редактировать",
+
+  "recordChooseName": "Название",
+  "recordChooseEnterName": "Ведите имя",
+  "recordChooseMinVal": "Минимальная величина",
+  "recordChooseUpdate": "Обновить",
+  "recordChooseUpdatedSuccess": "Категория успешно обновлена",
+  "categoryCreateEnterName": "Введите название",
+  "categoryCreateLimit": "Лимит",
+  "categoryCreateWasCreated": "Категория была создана",
+  "navbarProfile": "Профиль",
+  "navbarExit": "Выйти",
+  "registerHaveAcc": "Нет аккаунта?",
+
+  "routerHome": "Главная",
+  "routerRegister": "Регистрация",
+  "routerProfile": "Профиль",
+  "routerCategories": "Категории",
+  "routerDetail-record": "Детали записи",
+  "routerHistory": "История",
+  "routerLogin": "Войти",
+  "routerPlanning": "Планирование",
+  "routerRecord": "Запись"
+
+
+}
