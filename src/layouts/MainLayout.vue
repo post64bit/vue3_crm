@@ -3,10 +3,10 @@
         <Loader :style="{position: 'absolute', top: '50%', left: '50%'}" v-if="loading"/>
         <div v-else class="app-main-layout">
             <Navbar @click_burger="isOpen = !isOpen"/>
-            <Sidebar :key="func" v-model="isOpen"/>
+            <Sidebar @click_burger="isOpenFunc" :key="func" v-model="isOpen"/>
             <main class="app-content" :class="{full: !isOpen}">
                 <div class="app-page">
-                    <router-view/>
+                    <router-view></router-view>
                 </div>
             </main>
 
@@ -50,6 +50,13 @@ export default {
             await this.$store.dispatch('fetchInfo')
         }
         this.loading = false
+    },
+    methods: {
+        isOpenFunc () {
+            if (window.innerWidth < 900) {
+                this.isOpen = !this.isOpen
+            }
+        }
     },
     computed: {
         error () {

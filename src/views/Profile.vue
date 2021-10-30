@@ -87,10 +87,13 @@
                             </div>
                         </form>
                     </div>
-                    <div>
-                        <button @click="loadNextImage" class="btn waves-effect waves-light" name="action">Random photo
-                            <i class="material-icons right">lightbulb_outline</i>
-                        </button>
+                    <div class="button_and_spinner">
+                        <div>
+                            <button @click="loadNextImage" class="btn waves-effect waves-light" name="action">Random photo
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </button>
+                        </div>
+                        <div :class="{hideSpinner: loadingForSpinner}" class="spinner"></div>
                     </div>
                     <div>
                         <button @click="upLoad" class="save_btn btn waves-effect waves-light" name="action">Save
@@ -124,7 +127,8 @@ export default {
             emojis: ['😄', '😃', '😀', '😊', '😉', '😘', '😚', '😗', '😙', '😜', '😝', '😛', '😁', '😌'],
             imageFile: null,
             loading: true,
-            newBill: 0
+            newBill: 0,
+            loadingForSpinner: false
         }
     },
     validations () {
@@ -141,11 +145,12 @@ export default {
         })
         if (this.$store.getters.info.image === 'default-image.png') {
             this.$refs.img.src = await this.$store.dispatch('fetchDefaultImage')
-            this.loading = false
+        } else if (this.$store.getters.info.lastUpdateIsImgUrl) {
+            this.$refs.img.src = this.$store.getters.info.imgUrl
         } else {
             this.$refs.img.src = await this.$store.dispatch('fetchImage')
-            this.loading = false
         }
+        this.loading = false
         const elems = document.querySelectorAll('.modal')
         const instances = M.Modal.init(elems)
     },
@@ -181,24 +186,40 @@ export default {
                 this.$refs.img.src = reader.result
             }
         },
-        // async loadNextImage () {
-        //     try {
-        //         axios.defaults.headers.common['x-api-key'] = '3ee6dc37-ff49-4dc2-b187-d8e01b422cfe'
-        //         this.imageFile = await axios.get('https://api.thecatapi.com/v1/images/search', {
-        //             params: {
-        //                 limit: 1,
-        //                 size: 'full'
-        //             }
-        //         })
-        //         this.imageFile.data[0].name = this.imageFile.data[0].id + '.jpg'
-        //         console.log(this.imageFile)
-        //         this.$refs.img.src = this.imageFile.data[0].url
-        //     } catch (e) {
-        //         console.log(e)
-        //     }
-        // },
-        upLoad () {
-            this.$store.dispatch('uploadImage', this.imageFile)
+        async loadNextImage () {
+            this.loadingForSpinner = true
+            try {
+                axios.defaults.headers.common['x-api-key'] = '3ee6dc37-ff49-4dc2-b187-d8e01b422cfe'
+                const imageFileRandom = await axios.get('https://api.thecatapi.com/v1/images/search', {
+                    params: {
+                        limit: 1,
+                        size: 'full'
+                    }
+                })
+                this.imageFile = imageFileRandom.data[0]
+                this.$refs.img.src = imageFileRandom.data[0].url
+            } catch (e) {
+                console.log(e)
+            }
+            function imgComplete (complete) {
+                if (!complete.$refs.img.complete) {
+                    setTimeout(imgComplete, 200, complete)
+                } else {
+                    complete.loadingForSpinner = false
+                }
+            }
+            imgComplete(this)
+        },
+        async upLoad () {
+            if (this.imageFile instanceof File) {
+                await this.$store.dispatch('uploadImage', this.imageFile)
+                await this.$store.dispatch('updateInfo', { lastUpdateIsImgUrl: false })
+            } else {
+                await this.$store.dispatch('updateInfo', {
+                    imgUrl: this.imageFile.url,
+                    lastUpdateIsImgUrl: true
+                })
+            }
             this.$message('Your photo is updated')
         },
         async deleteAccount () {
@@ -217,6 +238,40 @@ export default {
 </script>
 
 <style scoped>
+/*spinner */
+.spinner {
+    margin-left: 20px;
+    opacity: 0;
+}
+.hideSpinner {
+    opacity: 1;
+}
+
+.spinner:after {
+    animation: changeContent .8s linear infinite;
+    display: block;
+    content: "⠋";
+    font-size: 30px;
+}
+
+@keyframes changeContent {
+    10% { content: "⠙"; }
+    20% { content: "⠹"; }
+    30% { content: "⠸"; }
+    40% { content: "⠼"; }
+    50% { content: "⠴"; }
+    60% { content: "⠦"; }
+    70% { content: "⠧"; }
+    80% { content: "⠇"; }
+    90% { content: "⠏"; }
+}
+/*spinner end */
+
+.button_and_spinner {
+    display: flex;
+    align-items: center;
+}
+
 .switch {
     margin-bottom: 2rem;
 }
@@ -227,6 +282,11 @@ export default {
 }
 .form_and_img {
     display: flex;
+}
+@media screen and (max-width: 900px) {
+    .form_and_img {
+        flex-direction: column;
+    }
 }
 .form {
     width: 400px;

@@ -1,6 +1,7 @@
 <template>
     <ul :key="func" class="sidenav app-sidenav" :class="{'open': modelValue}" style="margin-top: 60px; max-width: 20%">
         <router-link
+            @click="$emit('click_burger')"
             v-for="link in links"
             :to="link.url"
             :key="link.url"
@@ -31,6 +32,11 @@ export default {
                 { title: this.$translate('sidebarRecord'), url: '/record' },
                 { title: this.$translate('sidebarCategories'), url: '/categories' }
             ]
+        }
+    },
+    mounted () {
+        if (window.innerWidth < 900) {
+            this.links.push({ title: 'Profile', url: '/profile' })
         }
     }
 }
