@@ -25,13 +25,12 @@
                         <input
                             id="bill"
                             type="number"
-                            v-model.trim="v$.newBill.$model"
-                            :class="{invalid: v$.newBill.$error}"
+                            v-model="newBill"
                         >
                         <label for="description">Bill</label>
-                        <span
-                            v-if="v$.newBill.$error"
-                            class="helper-text invalid">Minimal sum is 1</span>
+<!--                        <span-->
+<!--                            v-if="v$.newBill.$error"-->
+<!--                            class="helper-text invalid">Minimal sum is 1</span>-->
                     </div>
                     <div class="switch">
                         <label>
@@ -43,7 +42,7 @@
                     </div>
                     <div class="btns">
                         <button class="btn waves-effect waves-light" type="submit">
-                            {{ $translate('profileSubmitButton') }}
+                            Save
                             <i class="material-icons right">send</i>
                         </button>
                         <button @click.prevent="this.$router.push('/update-password')"
@@ -113,8 +112,6 @@ import firebase from 'firebase/compat'
 import axios from 'axios'
 import Loader from '../components/app/Loader'
 
-const mustBeMore = (value) => value > 1
-
 export default {
     name: 'Profile',
     components: { Loader },
@@ -133,8 +130,7 @@ export default {
     },
     validations () {
         return {
-            name: { required, min: minLength(4) },
-            newBill: { mustBeMore }
+            name: { required, min: minLength(4) }
         }
     },
     async mounted () {
